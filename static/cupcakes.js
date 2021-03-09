@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:5000/api/";
+const BASE_URL = "http://127.0.0.1:5000/api";
 
 
 /** Generate HTML about a specific cupcake */
@@ -55,7 +55,7 @@ $("#new-cupcake-form").on("submit", async function(evt) {
 /** Handle deleting a cupcake */
 
 $("#cupcakes-list").on("click", ".delete-button", async function(evt) {
-    evt.preventDedault();
+    evt.preventDefault();
     let $cupcake = $(evt.target).closest("div");
     let cupcakeId = $cupcake.attr("data-cupcake-id");
     await axios.delete(`${BASE_URL}/cupcakes/${cupcakeId}`);
